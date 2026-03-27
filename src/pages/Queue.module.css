@@ -1,0 +1,328 @@
+.queueContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+.header h1 {
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.header p {
+  color: var(--text-secondary);
+}
+
+.clearBtn {
+  position: absolute;
+  right: 0;
+  top: 10px;
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-weight: 500;
+}
+
+.clearBtn:hover {
+  background: rgba(255, 42, 95, 0.1);
+  color: var(--accent-primary);
+  border-color: var(--accent-primary);
+}
+
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--text-secondary);
+}
+
+.nowPlayingCard {
+  display: flex;
+  align-items: center;
+  padding: 24px;
+  gap: 32px;
+  background: linear-gradient(135deg, rgba(20,20,30,0.8), rgba(123, 44, 191, 0.15));
+}
+
+.nowPlayingThumbnailWrapper {
+  width: 280px;
+  aspect-ratio: 16/9;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.nowPlayingThumbnailWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.playingIndicator {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 24px;
+}
+
+.bar {
+  width: 6px;
+  background-color: var(--accent-primary);
+  animation: bounce 1s infinite alternate;
+  border-radius: 4px;
+}
+
+.bar:nth-child(1) { height: 12px; animation-delay: 0s; }
+.bar:nth-child(2) { height: 24px; animation-delay: 0.3s; }
+.bar:nth-child(3) { height: 16px; animation-delay: 0.6s; }
+
+@keyframes bounce {
+  10% { height: 8px; }
+  50% { height: 24px; }
+  100% { height: 12px; }
+}
+
+.songInfoLarge {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.songInfoLarge h3 {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.songInfoLarge p {
+  font-size: 18px;
+  color: var(--text-secondary);
+}
+
+.emptyCard {
+  padding: 40px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Queue List */
+.queueList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.queueItem {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 16px;
+  transition: all var(--transition-fast);
+  cursor: grab;
+}
+
+.queueItem:active {
+  cursor: grabbing;
+}
+
+.queueItem.dragging {
+  opacity: 0.5;
+  border: 1px dashed var(--accent-primary);
+}
+
+.dragHandle {
+  color: var(--text-secondary);
+  opacity: 0.5;
+  transition: opacity var(--transition-fast);
+}
+
+.queueItem:hover .dragHandle {
+  opacity: 1;
+}
+
+.indexNum {
+  width: 24px;
+  text-align: center;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.thumbnailSmall {
+  width: 80px;
+  height: 45px;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.thumbnailSmall img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.playOverlaySmall {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  border: none;
+  cursor: pointer;
+}
+
+.queueItem:hover .playOverlaySmall {
+  opacity: 1;
+}
+
+.songInfoSmall {
+  flex-grow: 1;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.songInfoSmall h4 {
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 2px;
+}
+
+.songInfoSmall p {
+  font-size: 12px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.timeAdded {
+  font-size: 12px;
+  color: var(--text-secondary);
+  opacity: 0.7;
+  white-space: nowrap;
+  padding: 0 16px;
+}
+
+.itemActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.moveArrows {
+  display: flex;
+  flex-direction: column;
+}
+
+.moveArrows button {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+}
+
+.moveArrows button:hover:not(:disabled) {
+  color: var(--text-primary);
+}
+
+.moveArrows button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.removeBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: var(--radius-full);
+}
+
+.removeBtn:hover {
+  color: #ff4d4d;
+  background: rgba(255, 77, 77, 0.1);
+}
+
+.emptyState {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-secondary);
+  background: var(--glass-bg);
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--glass-border);
+}
+
+@media (max-width: 768px) {
+  .nowPlayingCard {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .nowPlayingThumbnailWrapper {
+    width: 100%;
+  }
+
+  .songInfoLarge h3 {
+    font-size: 20px;
+  }
+
+  .queueItem {
+    padding: 12px 8px;
+    gap: 12px;
+  }
+
+  .thumbnailSmall {
+    width: 60px;
+    height: 34px;
+  }
+
+  .timeAdded {
+    display: none;
+  }
+  
+  .itemActions {
+    gap: 8px;
+  }
+}

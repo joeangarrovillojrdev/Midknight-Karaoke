@@ -1,0 +1,189 @@
+.miniPlayer {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 400px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  gap: 16px;
+  z-index: 100;
+  transition: all var(--transition-normal);
+  overflow: hidden;
+}
+
+.miniPlayer.fullscreen {
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  border-radius: 0;
+  padding: 0;
+  background-color: #000;
+  border: none;
+  z-index: 9999;
+}
+
+.videoWrapper {
+  width: 118px;
+  height: 66px;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background-color: var(--bg-primary);
+  position: relative;
+  transition: all var(--transition-normal);
+}
+
+.videoFullscreen {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+
+.youtubeFrame {
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Prevent clicks when small */
+}
+
+.fullscreen .youtubeFrame {
+  pointer-events: auto; /* Re-enable for fullscreen */
+}
+
+.controls {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.songInfo {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-right: 12px;
+}
+
+.scrollTextWrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.songTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.channelTitle {
+  font-size: 11px;
+  color: var(--text-secondary);
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.actionButtons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btnNav {
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.btnNav:hover {
+  color: var(--accent-primary);
+  transform: scale(1.1);
+}
+
+.btnAction {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--glass-border);
+  color: var(--text-secondary);
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btnAction:hover {
+  background: var(--glass-bg);
+  color: var(--text-primary);
+  border-color: var(--accent-primary);
+}
+
+.disabledIcon {
+  opacity: 0.3;
+}
+
+.divider {
+  width: 1px;
+  height: 24px;
+  background-color: var(--glass-border);
+  margin: 0 4px;
+}
+
+.minimizeBtn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(8px);
+  color: white;
+  width: 48px;
+  height: 48px;
+  z-index: 10000;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.1);
+  cursor: pointer;
+}
+
+.minimizeBtn:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+@media (max-width: 768px) {
+  .miniPlayer {
+    width: calc(100vw - 32px);
+    bottom: 16px;
+    right: 16px;
+    left: 16px;
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .videoWrapper {
+    width: 80px;
+    height: 45px;
+  }
+
+  .songTitle {
+    font-size: 13px;
+  }
+
+  .btnAction {
+    width: 32px;
+    height: 32px;
+  }
+}

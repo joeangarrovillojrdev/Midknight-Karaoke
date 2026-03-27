@@ -1,0 +1,254 @@
+.searchContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.header h1 {
+  font-size: 36px;
+  font-weight: 800;
+}
+
+.header p {
+  color: var(--text-secondary);
+}
+
+.searchForm {
+  margin-top: 16px;
+  max-width: 800px;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  padding: 8px 8px 8px 24px;
+  border-radius: var(--radius-full);
+}
+
+.searchIcon {
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.inputWrapper input {
+  flex-grow: 1;
+  background: transparent;
+  border: none;
+  padding: 16px;
+  color: var(--text-primary);
+  font-size: 18px;
+  outline: none;
+  font-family: inherit;
+}
+
+.inputWrapper input::placeholder {
+  color: var(--text-secondary);
+}
+
+.searchBtn {
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity var(--transition-fast);
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+}
+
+.searchBtn:hover {
+  opacity: 0.9;
+}
+
+.searchBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.resultsArea {
+  min-height: 400px;
+}
+
+.resultsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.resultCard {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  gap: 24px;
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+  position: relative;
+  z-index: 1;
+}
+
+.resultCard:hover, .resultCard:focus-within {
+  transform: translateX(4px);
+  background-color: rgba(255, 255, 255, 0.05);
+  z-index: 100;
+}
+
+.thumbnailWrapper {
+  position: relative;
+  width: 160px;
+  aspect-ratio: 16/9;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.thumbnailWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.playOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.thumbnailWrapper:hover .playOverlay {
+  opacity: 1;
+}
+
+.songInfo {
+  flex-grow: 1;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.songInfo h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.songInfo p {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.actionButtons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-right: 12px;
+}
+
+.actionBtn {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  height: 44px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 16px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-weight: 500;
+  font-family: inherit;
+}
+
+.actionBtn:hover {
+  background: var(--glass-bg);
+  border-color: var(--accent-primary);
+}
+
+.activeHeart {
+  color: var(--accent-primary);
+  border-color: var(--accent-primary);
+}
+
+.primaryAction {
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  border: none;
+  padding: 0 24px;
+}
+
+.primaryAction:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 42, 95, 0.3);
+}
+
+.loadingState, .emptyState {
+  text-align: center;
+  padding: 60px;
+  color: var(--text-secondary);
+  font-size: 18px;
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .searchForm {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .inputWrapper {
+    width: 100%;
+  }
+
+  .searchBtn {
+    width: 100%;
+  }
+
+  .resultCard {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .thumbnailWrapper {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .songInfo {
+    width: 100%;
+  }
+
+  .actionButtons {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

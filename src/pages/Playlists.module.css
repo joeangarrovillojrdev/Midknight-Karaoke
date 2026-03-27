@@ -1,0 +1,136 @@
+.createForm {
+  max-width: 500px;
+  margin-bottom: 16px;
+}
+
+.inputGroup {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  border-radius: var(--radius-full);
+}
+
+.inputGroup input {
+  flex-grow: 1;
+  background: transparent;
+  border: none;
+  padding: 8px 16px;
+  color: var(--text-primary);
+  font-size: 16px;
+  outline: none;
+  font-family: inherit;
+}
+
+.inputGroup input::placeholder {
+  color: var(--text-secondary);
+}
+
+.inputGroup button {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.inputGroup button:hover:not(:disabled) {
+  background: var(--glass-bg);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.inputGroup button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.playlistGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.playlistCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.playlistCard:hover {
+  transform: translateY(-4px);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.playlistInfo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.playlistIcon {
+  width: 64px;
+  height: 64px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.playlistInfo h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.playlistInfo p {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.deleteBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+}
+
+.deleteBtn:hover {
+  color: #ff4d4d;
+  background: rgba(255, 77, 77, 0.1);
+}
+
+.backBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+  width: max-content;
+  padding: 8px 0;
+}
+
+.backBtn:hover {
+  color: var(--text-primary);
+}
