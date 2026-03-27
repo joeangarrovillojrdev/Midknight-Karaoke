@@ -1,3 +1,52 @@
+# 🎤 Karaoke App
+
+A modern, feature-rich karaoke web application built with React, TypeScript, and Vite — powered by the YouTube Data API v3.
+
+## ✨ Features
+
+- 🔍 **YouTube Search** — Search for any karaoke song directly from YouTube
+- ▶️ **Embedded YouTube Player** — Watch and sing along without leaving the app
+- 📋 **Queue Management** — Add songs to a queue, reorder them via drag-and-drop, skip to any song, or clear the queue entirely
+- ❤️ **Favorites** — Mark songs as favorites for quick access later
+- 📁 **Playlists** — Create, manage, and delete custom playlists; add or remove songs from any playlist
+- 🕓 **History** — Automatically tracks the last 50 songs you've played
+- 🖥️ **Fullscreen Player** — Immersive fullscreen mode with an in-player song search and queue management
+- 🎵 **Mini Player** — Persistent mini player so you can browse the app while a song is playing
+- 💾 **Persistent State** — Your queue, favorites, playlists, and history are saved locally and survive page refreshes (powered by Zustand + localStorage)
+- 🌙 **Dark UI** — Sleek, modern dark-themed interface
+
+## 🛠️ Tech Stack
+
+- [React 18](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/) for fast development and builds
+- [Zustand](https://zustand-demo.pmnd.rs/) for global state management with persistence
+- [YouTube Data API v3](https://developers.google.com/youtube/v3)
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (v18 or higher recommended)
+- A [YouTube Data API v3](https://console.cloud.google.com/) key
+
+### Installation
+
+1. Clone the repository:
+   git clone https://github.com/your-username/karaoke-app.git
+   cd karaoke-app
+
+2. Install dependencies:
+   npm install
+
+3. Set up your API key:
+   cp .env.example .env
+   # Then open .env and replace the placeholder with your real YouTube API key
+
+4. Start the development server:
+   npm run dev
+
+5. Open http://localhost:5173 in your browser
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
